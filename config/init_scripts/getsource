@@ -1,0 +1,8 @@
+#!/bin/bash
+source ~/.bashrc
+# GET USER DATA
+USER_DATA=`curl http://169.254.169.254/latest/user-data/ --retry 3 --silent --fail`
+
+cd /home/ubuntu/app
+git clone https://github.com/alepaez/helloAWS.git .
+git reset --hard ${USER_DATA}
